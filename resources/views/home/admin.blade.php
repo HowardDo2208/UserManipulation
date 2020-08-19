@@ -28,20 +28,12 @@
                 @endforeach
             </tbody>
         </table>
-        <a href="/users/create">
-            <button type="button" class="btn btn-primary">Add New User</button>
-        </a>
-
-        <div class="mg">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item @if($index===1) disabled @endif"><a class="page-link" href="/home/{{$index-1}}">Previous</a></li>
-                    @foreach(range(1,$pages) as $page)
-                        <li class="page-item"><a class="page-link" href="/home/{{$page}}">{{$page}}</a></li>
-                    @endforeach
-                    <li class="page-item @if($index===$pages) disabled @endif"><a class="page-link" href="/home/{{$index+1}}">Next</a></li>
-                </ul>
-            </nav>
+        <div class="justify-content-end">
+            <a href="/users/create">
+                <button type="button" class="btn btn-primary">Add New User</button>
+            </a>
         </div>
+        {{ $users->links() }}
+
     </div>
 @endsection

@@ -4,18 +4,27 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 
 class UsersController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
+        $currentUser = auth()->user();
+        $user = DB::table('users')->paginate('5');
+            return view('home.admin', [
+                'users' => $user,
+            ]);
+
     }
 
     /**
@@ -50,20 +59,9 @@ class UsersController extends Controller
             'password' => Hash::make($request->password)
         ]);
         $user->save();
-
-        return redirect('/home/1');
+        return redirect('/home');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -86,6 +84,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
+
         if($user->email === $request->email){
             $user->update(request()->validate([
                 'name' =>'required|max:255',
@@ -98,7 +97,7 @@ class UsersController extends Controller
                 'password' => 'min:8'
             ]));
         }
-        return redirect('/home/1');
+        return redirect('/home');
     }
 
     /**
