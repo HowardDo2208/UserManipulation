@@ -17,7 +17,7 @@
                         <th scope="col">{{$user->name}}</th>
                         <th scope="col">{{$user->email}}</th>
                         <th scope="col">
-                            <a href="/users/{{$user->id}}">
+                            <a href="/users/{{$user->id}}/{{$page}}">
                                 <button type="button" class="btn btn-info">Edit</button>
                             </a>
                             <a href="/users/delete/{{$user->id}}" onclick="return confirm('Are you sure about that?')">

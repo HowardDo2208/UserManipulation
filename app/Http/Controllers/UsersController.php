@@ -20,11 +20,11 @@ class UsersController extends Controller
     public function index()
     {
         $currentUser = auth()->user();
-        $user = DB::table('users')->paginate('5');
+        $users = User::getPaginate();
             return view('home.admin', [
-                'users' => $user,
+                'users' => $users,
+                'page' => $users->currentPage()
             ]);
-
     }
 
     /**
@@ -33,7 +33,10 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $lastPage = User::getPaginate()->lastPage();
+        return view('users.create',[
+            'lastPage' => $lastPage
+        ]);
     }
 
     /**
@@ -59,7 +62,7 @@ class UsersController extends Controller
             'password' => Hash::make($request->password)
         ]);
         $user->save();
-        return redirect('/home');
+        return redirect('/home?page=' . $request->lastPage);
     }
 
 
@@ -68,10 +71,11 @@ class UsersController extends Controller
      *
 
      */
-    public function edit(User $user)
+    public function edit(User $user, int $page)
     {
         return view('users.edit', [
-            'user' => $user
+            'user' => $user,
+            'page' => $page
         ]);
     }
 
@@ -84,7 +88,6 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-
         if($user->email === $request->email){
             $user->update(request()->validate([
                 'name' =>'required|max:255',
@@ -97,7 +100,7 @@ class UsersController extends Controller
                 'password' => 'min:8'
             ]));
         }
-        return redirect('/home');
+        return redirect('/home/?page=' . $request->page);
     }
 
     /**
