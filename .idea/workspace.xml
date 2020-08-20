@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="281a03fa-72d9-4703-b7da-be91326121b8" name="Default Changelist" comment="" />
+    <list default="true" id="281a03fa-72d9-4703-b7da-be91326121b8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_20_050715_create_towns_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_20_050720_create_town_ships_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_20_050731_create_districts_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_08_20_050741_create_regions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +16,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -118,15 +127,17 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1gGBIjouYWygyS8rEPU6L34FmyE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -143,7 +154,24 @@
       <option name="presentableId" value="Default" />
       <updated>1597730971578</updated>
       <workItem from="1597730973052" duration="18329000" />
-      <workItem from="1597802461852" duration="15543000" />
+      <workItem from="1597802461852" duration="16543000" />
+      <workItem from="1597889096260" duration="753000" />
+      <workItem from="1597891165563" duration="365000" />
+      <workItem from="1597891567559" duration="440000" />
+      <workItem from="1597892030302" duration="506000" />
+      <workItem from="1597893803494" duration="159000" />
+      <workItem from="1597894051090" duration="299000" />
+      <workItem from="1597894508201" duration="755000" />
+      <workItem from="1597895277372" duration="4000" />
+      <workItem from="1597895296976" duration="128000" />
+      <workItem from="1597895669292" duration="573000" />
+      <workItem from="1597896285468" duration="111000" />
+      <workItem from="1597896410096" duration="66000" />
+      <workItem from="1597896485542" duration="271000" />
+      <workItem from="1597896766789" duration="215000" />
+      <workItem from="1597896990348" duration="507000" />
+      <workItem from="1597897554837" duration="152000" />
+      <workItem from="1597897716718" duration="7818000" />
     </task>
     <servers />
   </component>
@@ -154,6 +182,14 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="738" y="255" key="#HTTP_Proxy" timestamp="1597892055374">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="738" y="255" key="#HTTP_Proxy/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597892055374" />
+    <state x="551" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597897132152">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="551" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597897132152" />
     <state x="689" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597809363917">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -166,13 +202,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="260" key="FileChooserDialogImpl/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597732831998" />
-    <state x="460" y="164" key="SettingsEditor" timestamp="1597732843280">
+    <state width="196" height="463" key="HiddenNamespacesPopup" timestamp="1597897156420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="460" y="164" key="SettingsEditor/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597732843280" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597818351376">
+    <state width="196" height="463" key="HiddenNamespacesPopup/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597897156420" />
+    <state x="460" y="164" key="SettingsEditor" timestamp="1597898351124">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597818351376" />
+    <state x="460" y="164" key="SettingsEditor/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597898351124" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597899863633">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597899863633" />
   </component>
 </project>
