@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\District;
+use App\Region;
 use App\Town;
+use App\TownShip;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -37,7 +40,11 @@ class UsersController extends Controller
     {
         $lastPage = User::getPaginate()->lastPage();
         return view('users.create',[
-            'lastPage' => $lastPage
+            'lastPage' => $lastPage,
+            'regions' =>  Region::all(),
+            'districts' => District::all(),
+            'townShips' => TownShip::all(),
+            'towns' => Town::all(),
         ]);
     }
 
@@ -52,13 +59,15 @@ class UsersController extends Controller
            'name' =>'required|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|same:password_confirmation',
-            'password_confirmation' => 'required_with:password|min:6'
+            'password_confirmation' => 'required_with:password|min:6',
+             'geoTownId' => 'required'
         ]);
 
         $user = new User(request([
             'name',
             'email',
-            'password'
+            'password',
+            'geoTownId'
         ]));
         $user->fill([
             'password' => Hash::make($request->password)
@@ -77,7 +86,11 @@ class UsersController extends Controller
     {
         return view('users.edit', [
             'user' => $user,
-            'page' => $page
+            'page' => $page,
+            'regions' =>  Region::all(),
+            'districts' => District::all(),
+            'townShips' => TownShip::all(),
+            'towns' => Town::all(),
         ]);
     }
 
@@ -93,13 +106,15 @@ class UsersController extends Controller
         if($user->email === $request->email){
             $user->update(request()->validate([
                 'name' =>'required|max:255',
-                'password' => 'min:8'
+                'password' => 'min:8',
+                'geoTownId' => 'required'
             ]));
         }else{
             $user->update(request()->validate([
                 'name' =>'required|max:255',
                 'email' => 'required|email|unique:users',
-                'password' => 'min:8'
+                'password' => 'min:8',
+                'geoTownId' => 'required'
             ]));
         }
         return redirect('/home/?page=' . $request->page);

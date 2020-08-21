@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="281a03fa-72d9-4703-b7da-be91326121b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ee34d6b1-93b2-45fa-a173-7690ff1b8fe5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ee34d6b1-93b2-45fa-a173-7690ff1b8fe5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/users/create.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/users/edit.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/District.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/District.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Region.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Region.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Town.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Town.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/TownShip.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/TownShip.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +183,7 @@
       <workItem from="1597912284929" duration="123000" />
       <workItem from="1597912427248" duration="64000" />
       <workItem from="1597912552423" duration="7157000" />
-      <workItem from="1597977812614" duration="354000" />
+      <workItem from="1597977812614" duration="13222000" />
     </task>
     <servers />
   </component>
@@ -244,6 +242,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="460" y="164" key="SettingsEditor/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597919077583" />
+    <state x="681" y="261" width="540" height="524" key="StructurePopup" timestamp="1597985299286">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="681" y="261" width="540" height="524" key="StructurePopup/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597985299286" />
     <state x="551" y="252" key="Vcs.Push.Dialog.v2" timestamp="1597912754558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -252,9 +254,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597912833429" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597918750297">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597989672907">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597918750297" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597989672907" />
   </component>
 </project>
