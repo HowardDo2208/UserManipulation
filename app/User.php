@@ -12,6 +12,19 @@ class User extends Authenticatable
     public static function getPaginate(){
         return DB::table('users')->paginate(5);
     }
+
+    public function town(){
+        return $this->belongsTo('App\Town', 'geoTownId');
+    }
+    public function townShip(){
+        return $this->town->townShip;
+    }
+    public function district(){
+        return $this->townShip()->district;
+    }
+    public function region(){
+        return $this->district()->region;
+    }
     use Notifiable;
 
     /**

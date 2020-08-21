@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Town;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -19,7 +21,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $currentUser = auth()->user();
+
         $users = User::getPaginate();
             return view('home.admin', [
                 'users' => $users,
