@@ -73,19 +73,17 @@
 
                                 <label for="geo-district">District</label>
                                 <select class="form-control" id="geo-district" name="geo-district">
-                                    <option value="" selected>Select District</option>
+                                    <option value="" selected>Pls Select Region First</option>
                                 </select>
 
                                 <label for="geo-township">Town Ship</label>
                                 <select class="form-control" id="geo-township" name="geo-townShip">
-                                    <option value="" selected>Select Town Ship</option>
+                                    <option value="" selected>Pls Select Region First</option>
                                 </select>
 
                                 <label for="geo-town">Town</label>
                                 <select class="form-control" id="geo-town" name="geoTownId">
-                                    @foreach($towns as $town)
-                                        <option value="{{$town->geoTownId}}" {{$town->geoTownId == old('geoTownId') ? 'selected' : ''}}>{{$town->geoTownName}} {{$town->geoTownId}}</option>
-                                    @endforeach
+                                    <option value="" selected>Pls Select Region First</option>
                                 </select>
 
                             </div>

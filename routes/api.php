@@ -24,3 +24,14 @@ Route::get('getDistricts', function(Request $request) {
     return response()->json($correspondingDistricts->select('geoDistrictId', 'geoDistrictName')->get());
 });
 
+Route::get('getTownShips', function(Request $request) {
+    $townShipTable = DB::table('tbl_geotownship');
+    $correspondingTownShip = $townShipTable->where('geoDistrictId', $request->districtId);
+    return response()->json($correspondingTownShip->select('geoTownShipId', 'geoTownShipName')->get());
+});
+
+Route::get('getTowns', function(Request $request) {
+    $townTable = DB::table('tbl_geotown');
+    $correspondingTown = $townTable->where('geoTownShipId', $request->townShipId);
+    return response()->json($correspondingTown->select('geoTownId', 'geoTownName')->get());
+});
