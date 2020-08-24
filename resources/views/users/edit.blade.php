@@ -55,35 +55,53 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="geo-region">Region</label>
-                                <select class="form-control" id="geo-region">
-                                    @foreach($regions as $region)
-                                        <option value="{{$region->geoRegionId}}" {{$region->geoRegionId == $user->region()->geoRegionId ? 'selected' : ''}}>{{$region->geoRegionName}} {{$region->geoRegionId}}</option>
-                                    @endforeach
-                                </select>
-
-                                <label for="geo-district">District</label>
-                                <select class="form-control" id="geo-district" >
-                                    @foreach($districts as $district)
-                                        <option value="{{$district->geoDistrictId}}" {{$district->geoDistrictId == $user->district()->geoDistrictId ? 'selected' : ''}}>{{$district->geoDistrictName}} {{$district->geoDistrictId}}</option>
-                                    @endforeach
-                                </select>
-
-                                <label for="geo-township">Town Ship</label>
-                                <select class="form-control" id="geo-township">
-                                    @foreach($townShips as $townShip)
-                                        <option value="{{$townShip->geoTownShipId}}" {{$townShip->geoTownShipId == $user->townShip()->geoTownShipId ? 'selected' : ''}}>{{$townShip->geoTownShipName}} {{$townShip->geoTownShipId}}</option>
-                                    @endforeach
-                                </select>
-
-                                <label for="geo-town">Town</label>
-                                <select class="form-control" id="geo-town" name="geoTownId">
-                                    @foreach($towns as $town)
-                                        <option value="{{$town->geoTownId}}" {{$town->geoTownId == $user->geoTownId ? 'selected' : ''}}>{{$town->geoTownName}} {{$town->geoTownId}}</option>
-                                    @endforeach
-
-                                </select>
+                                <label for="geo-region" class="col-md-4 col-form-label text-md-right">Region</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="geo-region">
+                                        @foreach($regions as $region)
+                                            <option
+                                                value="{{$region->geoRegionId}}" {{$region->geoRegionId == $user->region()->geoRegionId ? 'selected' : ''}}>{{$region->geoRegionName}} {{$region->geoRegionId}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
+
+                            <div class="form-group row">
+                                <label for="geo-district" class="col-md-4 col-form-label text-md-right">District</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="geo-district">
+                                        @foreach($districts as $district)
+                                            <option
+                                                value="{{$district->geoDistrictId}}" {{$district->geoDistrictId == $user->district()->geoDistrictId ? 'selected' : ''}}>{{$district->geoDistrictName}} {{$district->geoDistrictId}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="geo-township" class="col-md-4 col-form-label text-md-right">Town Ship</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="geo-township">
+                                        @foreach($townShips as $townShip)
+                                            <option
+                                                value="{{$townShip->geoTownShipId}}" {{$townShip->geoTownShipId == $user->townShip()->geoTownShipId ? 'selected' : ''}}>{{$townShip->geoTownShipName}} {{$townShip->geoTownShipId}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="geo-town" class="col-md-4 col-form-label text-md-right">Town</label>
+                                <div class="col-md-6">
+                                    <select class="form-control" id="geo-town" name="geoTownId">
+                                    @foreach($towns as $town)
+                                        <option
+                                            value="{{$town->geoTownId}}" {{$town->geoTownId == $user->geoTownId ? 'selected' : ''}}>{{$town->geoTownName}} {{$town->geoTownId}}</option>
+                                        @endforeach
+                                        </select>
+                                </div>
+                            </div>
+
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
