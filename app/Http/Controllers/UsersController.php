@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\District;
+use App\Region;
+use App\Town;
+use App\TownShip;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -19,12 +24,12 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $currentUser = auth()->user();
-        $user = DB::table('users')->paginate('5');
-            return view('home.admin', [
-                'users' => $user,
-            ]);
 
+        $users = User::getPaginate();
+            return view('home.admin', [
+                'users' => $users,
+                'page' => $users->currentPage()
+            ]);
     }
 
     /**
@@ -33,7 +38,14 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $lastPage = User::getPaginate()->lastPage();
+        return view('users.create',[
+            'lastPage' => $lastPage,
+            'regions' =>  Region::all(),
+            'districts' => District::all(),
+            'townShips' => TownShip::all(),
+            'towns' => Town::all(),
+        ]);
     }
 
     /**
@@ -47,19 +59,21 @@ class UsersController extends Controller
            'name' =>'required|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|same:password_confirmation',
-            'password_confirmation' => 'required_with:password|min:6'
+            'password_confirmation' => 'required_with:password|min:6',
+             'geoTownId' => 'required'
         ]);
 
         $user = new User(request([
             'name',
             'email',
-            'password'
+            'password',
+            'geoTownId'
         ]));
         $user->fill([
             'password' => Hash::make($request->password)
         ]);
         $user->save();
-        return redirect('/home');
+        return redirect('/home?page=' . $request->lastPage);
     }
 
 
@@ -68,10 +82,15 @@ class UsersController extends Controller
      *
 
      */
-    public function edit(User $user)
+    public function edit(User $user, int $page)
     {
         return view('users.edit', [
-            'user' => $user
+            'user' => $user,
+            'page' => $page,
+            'regions' =>  Region::all(),
+            'districts' => District::all(),
+            'townShips' => TownShip::all(),
+            'towns' => Town::all(),
         ]);
     }
 
@@ -84,20 +103,21 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-
         if($user->email === $request->email){
             $user->update(request()->validate([
                 'name' =>'required|max:255',
-                'password' => 'min:8'
+                'password' => 'min:8',
+                'geoTownId' => 'required'
             ]));
         }else{
             $user->update(request()->validate([
                 'name' =>'required|max:255',
                 'email' => 'required|email|unique:users',
-                'password' => 'min:8'
+                'password' => 'min:8',
+                'geoTownId' => 'required'
             ]));
         }
-        return redirect('/home');
+        return redirect('/home/?page=' . $request->page);
     }
 
     /**

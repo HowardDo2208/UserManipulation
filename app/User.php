@@ -5,9 +5,26 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
+    public static function getPaginate(){
+        return DB::table('users')->paginate(5);
+    }
+
+    public function town(){
+        return $this->belongsTo('App\Town', 'geoTownId');
+    }
+    public function townShip(){
+        return $this->town->townShip;
+    }
+    public function district(){
+        return $this->townShip()->district;
+    }
+    public function region(){
+        return $this->district()->region;
+    }
     use Notifiable;
 
     /**
@@ -16,7 +33,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'geoTownId'
     ];
 
     /**
