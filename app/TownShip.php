@@ -16,7 +16,11 @@ class TownShip extends Model
         return $this->belongsTo('App\District', 'geoDistrictId');
     }
     public function region(){
-        return $this->district->region;
+        try{
+            return $this->district->region;
+        }catch (\Throwable $e){
+            return '';
+        }
     }
 
 }

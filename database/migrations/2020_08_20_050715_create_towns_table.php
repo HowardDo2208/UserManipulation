@@ -40,6 +40,6 @@ class CreateTownsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('towns');
+        Schema::dropIfExists('tbl_GeoTown');
     }
 }

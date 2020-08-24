@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <script src="resources/js/users/create.js"></script>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -64,24 +64,21 @@
 
                             <div class="form-group row">
                                 <label for="geo-region">Region</label>
-                                <select class="form-control" id="geo-region">
+                                <select class="form-control" id="geo-region" name="geo-region">
+                                    <option value="" selected>Select Region</option>
                                     @foreach($regions as $region)
-                                        <option value="{{$region->geoRegionId}}">{{$region->geoRegionName}} {{$region->geoRegionId}}</option>
+                                        <option value="{{$region->geoRegionId}}" >{{$region->geoRegionName}} {{$region->geoRegionId}}</option>
                                     @endforeach
                                 </select>
 
                                 <label for="geo-district">District</label>
-                                <select class="form-control" id="geo-district" >
-                                    @foreach($districts as $district)
-                                        <option value="{{$district->geoDistrictId}}">{{$district->geoDistrictName}} {{$district->geoDistrictId}}</option>
-                                    @endforeach
+                                <select class="form-control" id="geo-district" name="geo-district">
+                                    <option value="" selected>Select District</option>
                                 </select>
 
                                 <label for="geo-township">Town Ship</label>
-                                <select class="form-control" id="geo-township">
-                                    @foreach($townShips as $townShip)
-                                        <option value="{{$townShip->geoTownShipId}}">{{$townShip->geoTownShipName}} {{$townShip->geoTownShipId}}</option>
-                                    @endforeach
+                                <select class="form-control" id="geo-township" name="geo-townShip">
+                                    <option value="" selected>Select Town Ship</option>
                                 </select>
 
                                 <label for="geo-town">Town</label>
@@ -92,9 +89,7 @@
                                 </select>
 
                             </div>
-
                             <input type="hidden" id="lastPage" name="lastPage" value="{{$lastPage}}">
-
 
 
                             <div class="form-group row mb-0">
@@ -105,9 +100,11 @@
                                 </div>
                             </div>
                         </form>
+                        <script src="{{asset('js/users/create.js')}}"></script>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection

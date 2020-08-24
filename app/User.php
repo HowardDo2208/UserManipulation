@@ -17,13 +17,25 @@ class User extends Authenticatable
         return $this->belongsTo('App\Town', 'geoTownId');
     }
     public function townShip(){
-        return $this->town->townShip;
+        try{
+            return $this->town->townShip;
+        }catch (\Throwable $e){
+            return '';
+        }
     }
     public function district(){
-        return $this->townShip()->district;
+        try {
+            return $this->townShip()->district;
+        }catch (\Throwable $e){
+            return '';
+        }
     }
     public function region(){
-        return $this->district()->region;
+        try {
+            return $this->district()->region;
+        }catch (\Throwable $e){
+            return '';
+        }
     }
     use Notifiable;
 
