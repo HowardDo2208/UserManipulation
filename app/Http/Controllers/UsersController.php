@@ -76,7 +76,7 @@ class UsersController extends Controller
             'password' => Hash::make($request->password)
         ]);
         $user->save();
-        return redirect('/home?page=' . $request->lastPage);
+        return redirect('/index?page=' . $request->lastPage);
     }
 
 
@@ -129,7 +129,7 @@ class UsersController extends Controller
                 'geoRegionId' => 'required',
             ]));
         }
-        return redirect('/home/?page=' . $request->page);
+        return redirect('/index/?page=' . $request->page);
     }
 
     /**

@@ -7,15 +7,6 @@
     const townShipDropdown = document.getElementById("geo-township");
     const townDropdown = document.getElementById("geo-town");
 
-     let selectedDistrict = districtDropdown.options[districtDropdown.selectedIndex].value
-     let selectedTownShip = townShipDropdown.options[townShipDropdown.selectedIndex].value
-     let selectedTown = townDropdown.options[townDropdown.selectedIndex].value
-
-
-
-
-
-
 
     function makeRequest(target,apiURL, getFunction){
         httpRequest = new XMLHttpRequest();

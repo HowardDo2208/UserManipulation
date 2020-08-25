@@ -6,7 +6,6 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Edit User Information</div>
-                    <span id="userId" hidden>{{$user->id}}</span>
                     <div class="card-body">
                         <form method="POST" action="/users/{{$user->id}}/{{$page}}" autocomplete="off">
                             @csrf
