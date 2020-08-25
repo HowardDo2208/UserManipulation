@@ -116,7 +116,7 @@
                                 </div>
                             </div>
                         </form>
-                        <script src="{{asset('js/users/edit.js')}}"></script>
+                        <script src="{{asset('js/users/create_edit.js')}}"></script>
                     </div>
                 </div>
             </div>
