@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedInteger('geoTownId');
+            $table->unsignedInteger('geoTownShipId');
+            $table->unsignedInteger('geoDistrictId');
+            $table->unsignedInteger('geoRegionId');
             $table->rememberToken();
             $table->timestamps();
         });

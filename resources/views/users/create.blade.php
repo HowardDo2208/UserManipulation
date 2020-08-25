@@ -67,7 +67,7 @@
                             <div class="form-group row">
                                 <label for="geo-region" class="col-md-4 col-form-label text-md-right">Region</label>
                                 <div class="col-md-6">
-                                    <select class="form-control" id="geo-region" name="geo-region">
+                                    <select class="form-control" id="geo-region" name="geoRegionId">
                                         <option value="" selected>Select Region</option>
                                         @foreach($regions as $region)
                                             <option
@@ -80,7 +80,7 @@
                             <div class="form-group row">
                                 <label for="geo-district" class="col-md-4 col-form-label text-md-right">District</label>
                                 <div class="col-md-6">
-                                    <select class="form-control" id="geo-district" name="geo-district">
+                                    <select class="form-control" id="geo-district" name="geoDistrictId">
                                         <option value="" selected>Pls Select Region First</option>
                                     </select>
                                 </div>
@@ -89,7 +89,7 @@
                             <div class="form-group row">
                                 <label for="geo-township" class="col-md-4 col-form-label text-md-right">Town Ship</label>
                                 <div class="col-md-6">
-                                    <select class="form-control" id="geo-township" name="geo-townShip">
+                                    <select class="form-control" id="geo-township" name="geoTownShipId">
                                         <option value="" selected>Pls Select Region First</option>
                                     </select>
                                 </div>
@@ -105,9 +105,6 @@
                             </div>
 
 
-
-
-                            </div>
                             <input type="hidden" id="lastPage" name="lastPage" value="{{$lastPage}}">
 
 

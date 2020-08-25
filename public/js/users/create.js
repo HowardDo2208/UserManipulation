@@ -2,19 +2,10 @@
     var httpRequest
 
     //  GET DISTRICTS SELECTION
-    var regions = document.getElementById("geo-region");
-    var districtDropdown = document.getElementById("geo-district");
-    var townShipDropdown = document.getElementById("geo-township");
-    var townDropdown = document.getElementById("geo-town");
-    var selectedRegionId = regions.options[regions.selectedIndex].value;
-
-
-
-    regions.addEventListener('change', makeDistrictRequest);
-
-    function makeDistrictRequest(event){
-        makeRequest(event, '/api/getDistricts?regionId=', getDistricts)
-    }
+    const regionDropdown = document.getElementById("geo-region");
+    const districtDropdown = document.getElementById("geo-district");
+    const townShipDropdown = document.getElementById("geo-township");
+    const townDropdown = document.getElementById("geo-town");
 
     function makeRequest(event,apiURL, getFunction){
         console.log(event.target.value);
@@ -26,6 +17,14 @@
         httpRequest.onreadystatechange = getFunction;
         httpRequest.open('GET', apiURL + event.target.value);
         httpRequest.send();
+    }
+
+
+    var selectedRegionId = regionDropdown.options[regionDropdown.selectedIndex].value;
+    regionDropdown.addEventListener('change', makeDistrictRequest);
+
+    function makeDistrictRequest(event){
+        makeRequest(event, '/api/getDistricts?regionId=', getDistricts)
     }
 
     function getDistricts(){
@@ -47,6 +46,8 @@
     function createDistrictOption(response){
         return new Option(response.geoDistrictName, response.geoDistrictId);
     }
+
+
 
     //    GET TOWNSHIPS SELECTION
     var selectedDistrictId = districtDropdown.options[districtDropdown.selectedIndex].value;
@@ -76,8 +77,10 @@
 
 
     // GET TOWN SELECTION
+
     var selectedTownShip = townShipDropdown.options[townDropdown.selectedIndex].value;
     townShipDropdown.addEventListener('change', makeTownRequest);
+
     function makeTownRequest(event){
         makeRequest(event, "/api/getTowns?townShipId=", getTowns)
     }

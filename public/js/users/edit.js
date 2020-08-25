@@ -1,38 +1,43 @@
 (function(){
-    var httpRequest
+    let httpRequest
 
-    //  GET DISTRICTS SELECTION
-    var regions = document.getElementById("geo-region");
-    var districtDropdown = document.getElementById("geo-district");
-    var townShipDropdown = document.getElementById("geo-township");
-    var townDropdown = document.getElementById("geo-town");
-    var selectedRegionId = regions.options[regions.selectedIndex].value;
+    //  REGISTER DROPDOWNS
+    const regionDropdown = document.getElementById("geo-region");
+    const districtDropdown = document.getElementById("geo-district");
+    const townShipDropdown = document.getElementById("geo-township");
+    const townDropdown = document.getElementById("geo-town");
+
+     let selectedDistrict = districtDropdown.options[districtDropdown.selectedIndex].value
+     let selectedTownShip = townShipDropdown.options[townShipDropdown.selectedIndex].value
+     let selectedTown = townDropdown.options[townDropdown.selectedIndex].value
 
 
 
-    regions.addEventListener('change', makeDistrictRequest);
 
-    function makeDistrictRequest(event){
-        makeRequest(event, '/api/getDistricts?regionId=', getDistricts)
-    }
 
-    function makeRequest(event,apiURL, getFunction){
-        console.log(event.target.value);
+
+
+    function makeRequest(target,apiURL, getFunction){
         httpRequest = new XMLHttpRequest();
         if (!httpRequest){
             alert('cannot create an XMLHTTP instance');
             return false;
         }
         httpRequest.onreadystatechange = getFunction;
-        httpRequest.open('GET', apiURL + event.target.value);
+        httpRequest.open('GET', apiURL + target.value);
         httpRequest.send();
+    }
+
+    regionDropdown.addEventListener('change', makeDistrictRequest);
+
+    function makeDistrictRequest(){
+        makeRequest(regionDropdown, '/api/getDistricts?regionId=', getDistricts)
     }
 
     function getDistricts(){
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
                 const response = JSON.parse(httpRequest.response);
-                console.log(response.length, response, response[0].geoDistrictId, response[0].geoDistrictName);
                 districtDropdown.innerHTML=""
                 for (var i = 0; i<response.length;i++){
                     districtDropdown.appendChild(createDistrictOption(response[i]));
@@ -48,12 +53,13 @@
         return new Option(response.geoDistrictName, response.geoDistrictId);
     }
 
+
+
     //    GET TOWNSHIPS SELECTION
-    var selectedDistrictId = districtDropdown.options[districtDropdown.selectedIndex].value;
     districtDropdown.addEventListener('change', makeTownShipRequest);
 
-    function makeTownShipRequest(event){
-        makeRequest(event, '/api/getTownShips?districtId=', getTownShips)
+    function makeTownShipRequest(){
+        makeRequest(districtDropdown, '/api/getTownShips?districtId=', getTownShips)
     }
 
     function getTownShips(){
@@ -76,10 +82,11 @@
 
 
     // GET TOWN SELECTION
-    var selectedTownShip = townShipDropdown.options[townDropdown.selectedIndex].value;
+
     townShipDropdown.addEventListener('change', makeTownRequest);
-    function makeTownRequest(event){
-        makeRequest(event, "/api/getTowns?townShipId=", getTowns)
+
+    function makeTownRequest(){
+        makeRequest(townShipDropdown, "/api/getTowns?townShipId=", getTowns)
     }
 
     function getTowns(){

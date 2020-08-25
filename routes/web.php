@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'UsersController@index')->name('home');
+Route::get('/index', 'UsersController@index');
 Route::get('/users/create', 'UsersController@create');
 Route::post('/users', 'UsersController@store');
 Route::get('/users/delete/{user}', 'UsersController@destroy');

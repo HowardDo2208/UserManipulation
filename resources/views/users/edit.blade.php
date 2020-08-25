@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Edit User Information</div>
-
+                    <span id="userId" hidden>{{$user->id}}</span>
                     <div class="card-body">
                         <form method="POST" action="/users/{{$user->id}}/{{$page}}" autocomplete="off">
                             @csrf
@@ -57,10 +57,10 @@
                             <div class="form-group row">
                                 <label for="geo-region" class="col-md-4 col-form-label text-md-right">Region</label>
                                 <div class="col-md-6">
-                                    <select class="form-control" id="geo-region">
+                                    <select class="form-control" id="geo-region" name="geoRegionId">
                                         @foreach($regions as $region)
-                                            <option
-                                                value="{{$region->geoRegionId}}" {{$region->geoRegionId == $user->region()->geoRegionId ? 'selected' : ''}}>{{$region->geoRegionName}} {{$region->geoRegionId}}</option>
+                                            <option value="{{$region->geoRegionId}}" {{$region->geoRegionId == $user->geoRegionId ? 'selected' : ''}}>{{$region->geoRegionName}} {{$region->geoRegionId}}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -69,10 +69,9 @@
                             <div class="form-group row">
                                 <label for="geo-district" class="col-md-4 col-form-label text-md-right">District</label>
                                 <div class="col-md-6">
-                                    <select class="form-control" id="geo-district">
+                                    <select class="form-control" id="geo-district" name="geoDistrictId">
                                         @foreach($districts as $district)
-                                            <option
-                                                value="{{$district->geoDistrictId}}" {{$district->geoDistrictId == $user->district()->geoDistrictId ? 'selected' : ''}}>{{$district->geoDistrictName}} {{$district->geoDistrictId}}</option>
+                                            <option value="{{$district->geoDistrictId}}" {{$district->geoDistrictId == $user->geoDistrictId ? 'selected' : ''}}>{{$district->geoDistrictName}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -81,10 +80,9 @@
                             <div class="form-group row">
                                 <label for="geo-township" class="col-md-4 col-form-label text-md-right">Town Ship</label>
                                 <div class="col-md-6">
-                                    <select class="form-control" id="geo-township">
+                                    <select class="form-control" id="geo-township" name="geoTownShipId">
                                         @foreach($townShips as $townShip)
-                                            <option
-                                                value="{{$townShip->geoTownShipId}}" {{$townShip->geoTownShipId == $user->townShip()->geoTownShipId ? 'selected' : ''}}>{{$townShip->geoTownShipName}} {{$townShip->geoTownShipId}}</option>
+                                            <option value="{{$townShip->geoTownShipId}}" {{$townShip->geoTownShipId == $user->geoTownShipId ? 'selected' : ''}}>{{$townShip->geoTownShipName}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -94,11 +92,10 @@
                                 <label for="geo-town" class="col-md-4 col-form-label text-md-right">Town</label>
                                 <div class="col-md-6">
                                     <select class="form-control" id="geo-town" name="geoTownId">
-                                    @foreach($towns as $town)
-                                        <option
-                                            value="{{$town->geoTownId}}" {{$town->geoTownId == $user->geoTownId ? 'selected' : ''}}>{{$town->geoTownName}} {{$town->geoTownId}}</option>
+                                        @foreach($towns as $town)
+                                            <option value="{{$town->geoTownId}}" {{$town->geoTownId == $user->geoTownId ? 'selected' : ''}}>{{$town->geoTownName}}</option>
                                         @endforeach
-                                        </select>
+                                    </select>
                                 </div>
                             </div>
 
@@ -115,5 +112,6 @@
                 </div>
             </div>
         </div>
+        <script src="{{asset('js/users/edit.js')}}"></script>
     </div>
 @endsection

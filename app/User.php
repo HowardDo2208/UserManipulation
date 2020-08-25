@@ -17,25 +17,13 @@ class User extends Authenticatable
         return $this->belongsTo('App\Town', 'geoTownId');
     }
     public function townShip(){
-        try{
-            return $this->town->townShip;
-        }catch (\Throwable $e){
-            return '';
-        }
+        return $this->belongsTo('App\TownShip', 'geoTownShipId');
     }
     public function district(){
-        try {
-            return $this->townShip()->district;
-        }catch (\Throwable $e){
-            return '';
-        }
+        return $this->belongsTo('App\District', 'geoDistrictId');
     }
     public function region(){
-        try {
-            return $this->district()->region;
-        }catch (\Throwable $e){
-            return '';
-        }
+        return $this->belongsTo('App\Region', 'geoRegionId');
     }
     use Notifiable;
 
@@ -45,7 +33,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'geoTownId'
+        'name', 'email', 'password', 'geoTownId', 'geoTownShipId', 'geoDistrictId', 'geoRegionId'
     ];
 
     /**
