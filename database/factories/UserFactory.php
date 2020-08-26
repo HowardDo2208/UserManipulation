@@ -6,6 +6,7 @@ use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use App\Town;
 /*
 |--------------------------------------------------------------------------
