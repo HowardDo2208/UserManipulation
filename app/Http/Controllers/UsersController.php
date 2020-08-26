@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
+use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {
@@ -22,13 +23,19 @@ class UsersController extends Controller
      * Display a listing of the resource.
      *
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        $users = User::getPaginate();
-            return view('users.index', [
-                'users' => $users,
-                'page' => $users->currentPage()
+            $name = $request->name;
+            $email = $request->email;
+            $searchResults = User::where('name', 'LIKE', '%'.$name.'%')
+                ->where('email', 'LIKE', '%'.$email.'%')
+                ->orderBy('updated_at','desc')
+                ->paginate(5);
+            return view('users.index',[
+                'users' => $searchResults,
+                'nameBox' => $name,
+                'emailBox' => $email,
             ]);
     }
 
@@ -76,7 +83,7 @@ class UsersController extends Controller
             'password' => Hash::make($request->password)
         ]);
         $user->save();
-        return redirect('/index?page=' . $request->lastPage);
+        return redirect('/index');
     }
 
 
@@ -85,14 +92,13 @@ class UsersController extends Controller
      *
 
      */
-    public function edit(User $user, int $page)
+    public function edit(User $user)
     {
         $districts = District::all()->where('geoRegionId', $user->geoRegionId);
         $townShips = TownShip::all()->where('geoDistrictId', $user->geoDistrictId);
         $towns = Town::all()->where('geoTownShipId', $user->geoTownShipId);
         return view('users.edit', [
             'user' => $user,
-            'page' => $page,
             'regions' =>  Region::all(),
             'districts' => $districts,
             'townShips' => $townShips,
@@ -129,7 +135,7 @@ class UsersController extends Controller
                 'geoRegionId' => 'required',
             ]));
         }
-        return redirect('/index/?page=' . $request->page);
+        return redirect('/index');
     }
 
     /**
@@ -143,5 +149,9 @@ class UsersController extends Controller
         $user = User::find($id);
         $user->delete();
         return Redirect::back();
+    }
+
+    public function search(Request $request){
+
     }
 }

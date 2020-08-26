@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Edit User Information</div>
                     <div class="card-body">
-                        <form method="POST" action="/users/{{$user->id}}/{{$page}}" autocomplete="off">
+                        <form method="POST" action="/users/{{$user->id}}" autocomplete="off">
                             @csrf
                             @method('PUT')
                             <div class="form-group row">
@@ -50,7 +50,6 @@
                                     </span>
                                     @enderror
                                 </div>
-                                <input type="hidden" id="page" name="page" value="{{$page}}">
                             </div>
 
                             <div class="form-group row">

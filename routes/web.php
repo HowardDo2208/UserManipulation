@@ -23,5 +23,6 @@ Route::get('/index', 'UsersController@index');
 Route::get('/users/create', 'UsersController@create');
 Route::post('/users', 'UsersController@store');
 Route::get('/users/delete/{user}', 'UsersController@destroy');
-Route::get('users/{user}/{page}', 'UsersController@edit');
-Route::put('/users/{user}/{page}', 'UsersController@update');
+Route::get('users/{user}', 'UsersController@edit');
+Route::put('/users/{user}', 'UsersController@update');
+
