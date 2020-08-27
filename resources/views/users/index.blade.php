@@ -19,7 +19,7 @@
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
         </form>
-        <a href="/users/export">
+        <a href="/users/export?email={{isset($emailBox) ? $emailBox : ''}}&name={{isset($nameBox) ? $nameBox : ''}}">
             <button class="btn btn-primary">Export</button>
         </a>
         <table class="table">

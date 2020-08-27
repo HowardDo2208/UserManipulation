@@ -31,13 +31,12 @@ class UsersController extends Controller
     {
             $name = $request->name;
             $email = $request->email;
-            $userList = $searchResults = User::where('name', 'LIKE', '%'.$name.'%')
-                ->where('email', 'LIKE', '%'.$email.'%')->get();
+
             $searchResults = User::where('name', 'LIKE', '%'.$name.'%')
                 ->where('email', 'LIKE', '%'.$email.'%')
                 ->orderBy('updated_at','desc')
                 ->paginate(5);
-            Cache::put('userList', $userList);
+
             return view('users.index',[
                 'users' => $searchResults,
                 'nameBox' => $name,
@@ -156,8 +155,10 @@ class UsersController extends Controller
         $user->delete();
         return Redirect::back();
     }
-    public function export(){
-        $userList = Cache::get('userList');
+
+    public function export(Request $request){
+        $userList = User::where('name', 'LIKE', '%'.$request->name.'%')
+                ->where('email', 'LIKE', '%'.$request->email.'%')->get();
         return new UsersExport($userList);
     }
 
