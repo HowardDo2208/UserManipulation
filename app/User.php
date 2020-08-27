@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
+
+
     public static function getPaginate(){
         return DB::table('users')->paginate(5);
     }
@@ -17,13 +19,13 @@ class User extends Authenticatable
         return $this->belongsTo('App\Town', 'geoTownId');
     }
     public function townShip(){
-        return $this->town->townShip;
+        return $this->belongsTo('App\TownShip', 'geoTownShipId');
     }
     public function district(){
-        return $this->townShip()->district;
+        return $this->belongsTo('App\District', 'geoDistrictId');
     }
     public function region(){
-        return $this->district()->region;
+        return $this->belongsTo('App\Region', 'geoRegionId');
     }
     use Notifiable;
 
@@ -33,7 +35,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'geoTownId'
+        'name', 'email', 'password', 'geoTownId', 'geoTownShipId', 'geoDistrictId', 'geoRegionId'
     ];
 
     /**

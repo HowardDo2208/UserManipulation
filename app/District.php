@@ -10,6 +10,9 @@ class District extends Model
     protected $primaryKey = 'geoDistrictId';
 
 
+    public function users(){
+        return $this->hasMany('App\User', 'geoDistrictId');
+    }
     public function townShips(){
         return $this->hasMany('App\TownShip', 'geoDistrictId');
     }

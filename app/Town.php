@@ -13,9 +13,17 @@ class Town extends Model
         return $this->belongsTo('App\TownShip', 'geoTownShipId');
     }
     public function district(){
-        return $this->townShip->district;
+        try {
+            return $this->townShip->district;
+        }catch (\Throwable $e){
+            return '';
+        }
     }
     public function region(){
-        return $this->townShip->district->region;
+        try {
+            return $this->townShip->district->region;
+        }catch (\Throwable $e){
+            return '';
+        }
     }
 }

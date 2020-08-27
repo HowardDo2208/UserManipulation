@@ -3,16 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\District;
+use App\Exports\UsersExport;
 use App\Region;
 use App\Town;
 use App\TownShip;
 use App\User;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
+use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 
 class UsersController extends Controller
 {
@@ -22,13 +27,21 @@ class UsersController extends Controller
      * Display a listing of the resource.
      *
      */
-    public function index()
+    public function index(Request $request)
     {
-
-        $users = User::getPaginate();
-            return view('home.admin', [
-                'users' => $users,
-                'page' => $users->currentPage()
+            $name = $request->name;
+            $email = $request->email;
+            $userList = $searchResults = User::where('name', 'LIKE', '%'.$name.'%')
+                ->where('email', 'LIKE', '%'.$email.'%')->get();
+            $searchResults = User::where('name', 'LIKE', '%'.$name.'%')
+                ->where('email', 'LIKE', '%'.$email.'%')
+                ->orderBy('updated_at','desc')
+                ->paginate(5);
+            Cache::put('userList', $userList);
+            return view('users.index',[
+                'users' => $searchResults,
+                'nameBox' => $name,
+                'emailBox' => $email,
             ]);
     }
 
@@ -42,9 +55,6 @@ class UsersController extends Controller
         return view('users.create',[
             'lastPage' => $lastPage,
             'regions' =>  Region::all(),
-            'districts' => District::all(),
-            'townShips' => TownShip::all(),
-            'towns' => Town::all(),
         ]);
     }
 
@@ -60,20 +70,26 @@ class UsersController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|same:password_confirmation',
             'password_confirmation' => 'required_with:password|min:6',
-             'geoTownId' => 'required'
+             'geoTownId' => 'required',
+             'geoTownShipId' => 'required',
+             'geoDistrictId' => 'required',
+             'geoRegionId' => 'required'
         ]);
 
         $user = new User(request([
             'name',
             'email',
             'password',
-            'geoTownId'
+            'geoTownId',
+            'geoTownShipId',
+            'geoDistrictId',
+            'geoRegionId'
         ]));
         $user->fill([
             'password' => Hash::make($request->password)
         ]);
         $user->save();
-        return redirect('/home?page=' . $request->lastPage);
+        return redirect('users/index');
     }
 
 
@@ -82,15 +98,17 @@ class UsersController extends Controller
      *
 
      */
-    public function edit(User $user, int $page)
+    public function edit(User $user)
     {
+        $districts = District::all()->where('geoRegionId', $user->geoRegionId);
+        $townShips = TownShip::all()->where('geoDistrictId', $user->geoDistrictId);
+        $towns = Town::all()->where('geoTownShipId', $user->geoTownShipId);
         return view('users.edit', [
             'user' => $user,
-            'page' => $page,
             'regions' =>  Region::all(),
-            'districts' => District::all(),
-            'townShips' => TownShip::all(),
-            'towns' => Town::all(),
+            'districts' => $districts,
+            'townShips' => $townShips,
+            'towns' => $towns,
         ]);
     }
 
@@ -107,17 +125,23 @@ class UsersController extends Controller
             $user->update(request()->validate([
                 'name' =>'required|max:255',
                 'password' => 'min:8',
-                'geoTownId' => 'required'
+                'geoTownId' => 'required',
+                'geoTownShipId' => 'required',
+                'geoDistrictId' => 'required',
+                'geoRegionId' => 'required'
             ]));
         }else{
             $user->update(request()->validate([
                 'name' =>'required|max:255',
                 'email' => 'required|email|unique:users',
                 'password' => 'min:8',
-                'geoTownId' => 'required'
+                'geoTownId' => 'required',
+                'geoTownShipId' => 'required',
+                'geoDistrictId' => 'required',
+                'geoRegionId' => 'required',
             ]));
         }
-        return redirect('/home/?page=' . $request->page);
+        return redirect('users/index');
     }
 
     /**
@@ -132,4 +156,9 @@ class UsersController extends Controller
         $user->delete();
         return Redirect::back();
     }
+    public function export(){
+        $userList = Cache::get('userList');
+        return new UsersExport($userList);
+    }
+
 }

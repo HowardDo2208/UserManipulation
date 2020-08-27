@@ -19,9 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'UsersController@index')->name('home');
+Route::get('/users/index', 'UsersController@index');
 Route::get('/users/create', 'UsersController@create');
 Route::post('/users', 'UsersController@store');
+Route::get('/users/export', 'UsersController@export');
 Route::get('/users/delete/{user}', 'UsersController@destroy');
-Route::get('users/{user}/{page}', 'UsersController@edit');
-Route::put('/users/{user}/{page}', 'UsersController@update');
+Route::get('/users/{user}', 'UsersController@edit');
+Route::put('/users/{user}', 'UsersController@update');
+

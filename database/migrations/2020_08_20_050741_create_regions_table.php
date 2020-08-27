@@ -35,6 +35,6 @@ class CreateRegionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('regions');
+        Schema::dropIfExists('tbl_GeoRegion');
     }
 }

@@ -36,6 +36,6 @@ class CreateTownShipsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('town_ships');
+        Schema::dropIfExists('tbl_GeoTownShip');
     }
 }
