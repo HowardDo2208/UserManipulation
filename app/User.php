@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
+
+
     public static function getPaginate(){
         return DB::table('users')->paginate(5);
     }

@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="281a03fa-72d9-4703-b7da-be91326121b8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/UserManipulation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/UserManipulation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DistrictController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegionController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TownController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TownShipController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -131,7 +131,14 @@
       <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
-      <path value="$PROJECT_DIR$/vendor/spatie/laravel-searchable" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gGBIjouYWygyS8rEPU6L34FmyE" />
@@ -202,6 +209,8 @@
       <workItem from="1598234997843" duration="26681000" />
       <workItem from="1598276529864" duration="1799000" />
       <workItem from="1598322808115" duration="20193000" />
+      <workItem from="1598434459305" duration="76000" />
+      <workItem from="1598508451938" duration="12976000" />
     </task>
     <servers />
   </component>
@@ -220,9 +229,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="551" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597897132152" />
-    <state x="764" y="201" key="#com.intellij.ide.util.MemberChooser" timestamp="1597910067602">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="492" y="-1217" key="#com.intellij.ide.util.MemberChooser" timestamp="1598517050659">
+      <screen x="-323" y="-1440" width="2048" height="1152" />
     </state>
+    <state x="492" y="-1217" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-323.-1440.2048.1152@-323.-1440.2048.1152" timestamp="1598517050659" />
     <state x="764" y="201" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597910067602" />
     <state x="689" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597809363917">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -260,9 +270,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="460" y="164" key="SettingsEditor/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1598339157074" />
-    <state x="681" y="261" width="540" height="524" key="StructurePopup" timestamp="1597985299286">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="403" y="-1151" width="576" height="581" key="StructurePopup" timestamp="1598517036423">
+      <screen x="-323" y="-1440" width="2048" height="1152" />
     </state>
+    <state x="403" y="-1151" width="576" height="581" key="StructurePopup/0.0.1920.1040/-323.-1440.2048.1152@-323.-1440.2048.1152" timestamp="1598517036423" />
     <state x="681" y="261" width="540" height="524" key="StructurePopup/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597985299286" />
     <state x="551" y="252" key="Vcs.Push.Dialog.v2" timestamp="1597912754558">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -272,10 +283,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1598339215415" />
-    <state x="342" y="-1191" width="717" height="752" key="search.everywhere.popup" timestamp="1598428419393">
+    <state x="342" y="-1191" width="717" height="752" key="search.everywhere.popup" timestamp="1598521148639">
       <screen x="-323" y="-1440" width="2048" height="1152" />
     </state>
-    <state x="342" y="-1191" width="717" height="752" key="search.everywhere.popup/0.0.1920.1040/-323.-1440.2048.1152@-323.-1440.2048.1152" timestamp="1598428419393" />
+    <state x="342" y="-1191" width="717" height="752" key="search.everywhere.popup/0.0.1920.1040/-323.-1440.2048.1152@-323.-1440.2048.1152" timestamp="1598521148639" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1598344197808" />
   </component>
 </project>

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <form action="/index" method="GET">
+        <form action="/users/index" method="GET">
             <div class="form-group row">
                 <label for="name-search" class="col-md-0 col-form-label text-md-right">Name</label>
                 <div class="col-md-6">
@@ -19,6 +19,9 @@
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
         </form>
+        <a href="/users/export">
+            <button class="btn btn-primary">Export</button>
+        </a>
         <table class="table">
             <thead>
                 <tr>

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\District;
+use App\Exports\UsersExport;
 use App\Region;
 use App\Town;
 use App\TownShip;
 use App\User;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +16,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
+use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 
 class UsersController extends Controller
 {
@@ -25,13 +29,15 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-
             $name = $request->name;
             $email = $request->email;
+            $userList = $searchResults = User::where('name', 'LIKE', '%'.$name.'%')
+                ->where('email', 'LIKE', '%'.$email.'%')->get();
             $searchResults = User::where('name', 'LIKE', '%'.$name.'%')
                 ->where('email', 'LIKE', '%'.$email.'%')
                 ->orderBy('updated_at','desc')
                 ->paginate(5);
+            Cache::put('userList', $userList);
             return view('users.index',[
                 'users' => $searchResults,
                 'nameBox' => $name,
@@ -83,7 +89,7 @@ class UsersController extends Controller
             'password' => Hash::make($request->password)
         ]);
         $user->save();
-        return redirect('/index');
+        return redirect('users/index');
     }
 
 
@@ -135,7 +141,7 @@ class UsersController extends Controller
                 'geoRegionId' => 'required',
             ]));
         }
-        return redirect('/index');
+        return redirect('users/index');
     }
 
     /**
@@ -150,8 +156,9 @@ class UsersController extends Controller
         $user->delete();
         return Redirect::back();
     }
-
-    public function search(Request $request){
-
+    public function export(){
+        $userList = Cache::get('userList');
+        return new UsersExport($userList);
     }
+
 }
