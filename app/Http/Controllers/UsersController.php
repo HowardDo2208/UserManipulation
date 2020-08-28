@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\District;
 use App\Exports\UsersExport;
+use App\Mail\ContactUser;
 use App\Region;
 use App\Town;
 use App\TownShip;
@@ -13,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
@@ -160,6 +162,13 @@ class UsersController extends Controller
         $userList = User::where('name', 'LIKE', '%'.$request->name.'%')
                 ->where('email', 'LIKE', '%'.$request->email.'%')->get();
         return new UsersExport($userList);
+    }
+
+    public function email(Request $request){
+        Mail::to($request->email)
+            ->send(new ContactUser($request->name));
+        return redirect('/users/index')
+            ->with('message', 'Email sent!');
     }
 
 }

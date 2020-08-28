@@ -22,6 +22,10 @@
         <a href="/users/export?email={{isset($emailBox) ? $emailBox : ''}}&name={{isset($nameBox) ? $nameBox : ''}}">
             <button class="btn btn-primary">Export</button>
         </a>
+        @if(session('message'))
+            <p class="text-success text-sm-left">
+                {{session('message')}}</p>
+        @endif
         <table class="table">
             <thead>
                 <tr>
@@ -43,6 +47,9 @@
                             <a href="/users/delete/{{$user->id}}" onclick="return confirm('Are you sure about that?')">
                                 <button type="button" class="btn btn-danger">Delete</button>
                             </a>
+                            <a href="/users/email?email={{$user->email}}&name={{$user->name}}">
+                                <button type="button" class="btn btn-secondary">Email</button>
+                            </a>
                         </th>
                     </tr>
                 @endforeach
@@ -54,6 +61,7 @@
             </a>
         </div>
         {{ $users->withQueryString()->links() }}
+
 
     </div>
 @endsection
