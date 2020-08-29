@@ -171,4 +171,7 @@ class UsersController extends Controller
             ->with('message', 'Email sent!');
     }
 
+    public function chart(){
+        return view('users.chart');
+    }
 }

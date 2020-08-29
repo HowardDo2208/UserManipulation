@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="281a03fa-72d9-4703-b7da-be91326121b8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/js/users/chart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/users/chart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +154,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -204,7 +212,10 @@
       <workItem from="1598322808115" duration="20193000" />
       <workItem from="1598434459305" duration="76000" />
       <workItem from="1598508451938" duration="12976000" />
-      <workItem from="1598584531121" duration="5341000" />
+      <workItem from="1598584531121" duration="6272000" />
+      <workItem from="1598595367222" duration="699000" />
+      <workItem from="1598596278007" duration="492000" />
+      <workItem from="1598596784673" duration="14689000" />
     </task>
     <servers />
   </component>
@@ -236,9 +247,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="778" y="287" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1598339449494" />
-    <state x="739" y="260" key="FileChooserDialogImpl" timestamp="1597732831998">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="465" y="-1152" key="FileChooserDialogImpl" timestamp="1598596891448">
+      <screen x="-323" y="-1440" width="2048" height="1152" />
     </state>
+    <state x="465" y="-1152" key="FileChooserDialogImpl/0.0.1920.1040/-323.-1440.2048.1152@-323.-1440.2048.1152" timestamp="1598596891448" />
     <state x="739" y="260" key="FileChooserDialogImpl/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597732831998" />
     <state width="1875" height="281" key="GridCell.Tab.0.bottom" timestamp="1598340685462">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -260,9 +272,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="196" height="463" key="HiddenNamespacesPopup/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1597897156420" />
-    <state x="460" y="164" key="SettingsEditor" timestamp="1598339157074">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="168" y="-1258" key="SettingsEditor" timestamp="1598596894905">
+      <screen x="-323" y="-1440" width="2048" height="1152" />
     </state>
+    <state x="168" y="-1258" key="SettingsEditor/0.0.1920.1040/-323.-1440.2048.1152@-323.-1440.2048.1152" timestamp="1598596894905" />
     <state x="460" y="164" key="SettingsEditor/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1598339157074" />
     <state x="403" y="-1151" width="576" height="581" key="StructurePopup" timestamp="1598517036423">
       <screen x="-323" y="-1440" width="2048" height="1152" />
@@ -277,10 +290,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1598339215415" />
-    <state x="342" y="-1191" width="672" height="160" key="search.everywhere.popup" timestamp="1598588161570">
+    <state x="342" y="-1191" width="672" height="160" key="search.everywhere.popup" timestamp="1598606774341">
       <screen x="-323" y="-1440" width="2048" height="1152" />
     </state>
-    <state x="342" y="-1191" width="672" height="160" key="search.everywhere.popup/0.0.1920.1040/-323.-1440.2048.1152@-323.-1440.2048.1152" timestamp="1598588161570" />
+    <state x="342" y="-1191" width="672" height="160" key="search.everywhere.popup/0.0.1920.1040/-323.-1440.2048.1152@-323.-1440.2048.1152" timestamp="1598606774341" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-323.-1440.2048.1152@0.0.1920.1040" timestamp="1598344197808" />
   </component>
 </project>

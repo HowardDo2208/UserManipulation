@@ -22,6 +22,9 @@
         <a href="/users/export?email={{isset($emailBox) ? $emailBox : ''}}&name={{isset($nameBox) ? $nameBox : ''}}">
             <button class="btn btn-primary">Export</button>
         </a>
+        <a href="/users/chart">
+            <button class="btn btn-primary">Distribution chart</button>
+        </a>
         @if(session('message'))
             <p class="text-success text-sm-left">
                 {{session('message')}}</p>

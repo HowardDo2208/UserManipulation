@@ -24,8 +24,8 @@ Route::get('/users/create', 'UsersController@create');
 Route::post('/users', 'UsersController@store');
 Route::get('/users/export', 'UsersController@export');
 Route::get('/users/email','UsersController@email');
+Route::get('/users/chart', 'UsersController@chart');
 Route::get('/users/delete/{user}', 'UsersController@destroy');
 Route::get('/users/{user}', 'UsersController@edit');
 Route::put('/users/{user}', 'UsersController@update');
-
 
