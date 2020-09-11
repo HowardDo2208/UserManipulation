@@ -11,7 +11,6 @@ httpRequest.send();
 function getRegionData(){
     if (httpRequest.readyState === XMLHttpRequest.DONE){
         if (httpRequest.status === 200){
-
             const response = JSON.parse(httpRequest.response);
             google.charts.load('current', {'packages':['corechart']});
             google.charts.setOnLoadCallback(drawChart);

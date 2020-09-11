@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use App\Region;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,6 +22,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //GET GEO DATA FOR CREATE AND EDIT FORM DROPDOWNS
+Route::get('getRegions', function() {
+    return response()->json(Region::all());
+});
 Route::get('getDistricts', function(Request $request) {
     $districtTable = DB::table('tbl_geodistrict');
     $correspondingDistricts = $districtTable->where('geoRegionId', $request->regionId);
@@ -38,7 +43,6 @@ Route::get('getTowns', function(Request $request) {
     return response()->json($correspondingTown->select('geoTownId', 'geoTownName')->get());
 });
 
-
 //GET REGION USER DATA TO DRAW CHART
 
 Route::get('regionData', function (){
@@ -53,5 +57,18 @@ Route::get('regionData', function (){
     });
     return response()->json($result);
 });
+
+
+Route::get('/users', 'Api\UsersController@index');
+Route::get('/users/create', 'Api\UsersController@create');
+Route::post('/users', 'Api\UsersController@store');
+Route::get('/users/export', 'Api\UsersController@export');
+Route::get('/users/email','Api\UsersController@email');
+Route::get('/users/chartData', 'Api\UsersController@chartData');
+Route::get('/users/delete', 'Api\UsersController@destroy');
+Route::put('/users', 'Api\UsersController@update');
+
+
+
 
 
